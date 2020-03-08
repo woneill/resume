@@ -1,35 +1,31 @@
 # Configuration
 # --------------------------------------------------
 
-LATEX = xelatex
+LATEX = docker run --rm -v $(abspath $(@D)):/mnt -w /mnt tianon/latex xelatex
+LATEX_OPTIONS = 
 
 RESUME_DIR = resume
 RESUME_SRCS = $(shell find $(RESUME_DIR) -name '*.tex')
 
-CV_DIR = cv
-CV_SRCS = $(shell find $(CV_DIR) -name '*.tex')
-
+PDF2PNG = docker run --rm -v $(abspath $<):/var/workdir/input.pdf -v $(abspath $(@D)):/var/workdir/output/ kolyadin/pdf2img -png -q input.pdf output/$(<:.pdf=)
 
 # Targets
 # --------------------------------------------------
 
 .PHONY: all
-all: resume.pdf coverletter.pdf #cv.pdf
+all: WilliamONeill.pdf WilliamONeill_coverletter.pdf WilliamONeill-1.png WilliamONeill-2.png
 
-resume.pdf: resume.tex $(RESUME_DIR) $(RESUME_SRCS)
-	$(LATEX) $<
+WilliamONeill%.png: WilliamONeill.pdf
+	$(PDF2PNG)
 
-cv.pdf: cv.tex $(CV_DIR) $(CV_SRCS)
-	$(LATEX) $<
+WilliamONeill.pdf: WilliamONeill.tex $(RESUME_DIR) $(RESUME_SRCS)
+	$(LATEX) $(LATEX_OPTIONS) $<
 
-coverletter.pdf: coverletter.tex
-	$(LATEX) $<
+WilliamONeill_coverletter.pdf: WilliamONeill_coverletter.tex
+	$(LATEX) $(LATEX_OPTIONS) $< 
 
 $(RESUME_DIR):
 	mkdir $(RESUME_DIR)
 
-$(CV_DIR):
-	mkdir $(CV_DIR)
-
 clean:
-	rm -rf *.pdf
+	rm -rf *.pdf *.png *.aux *.fls *.log *.out *.fdb_latexmk *.synctex.gz
