@@ -28,7 +28,7 @@
 % Color for highlights
 % Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
 %                 awesome-nephritis, awesome-concrete, awesome-darknight
-\colorlet{awesome}{awesome-red}
+\colorlet{awesome}{awesome-emerald}
 % Uncomment if you would like to specify your own color
 % \definecolor{awesome}{HTML}{CA63A8}
 
@@ -45,6 +45,7 @@
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
+\usepackage{lastpage}
 
 %-------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
@@ -73,7 +74,9 @@
 % \extrainfo{extra informations}
 
 % \quote{``Be the change that you want to see in the world."}
-
+\IfFileExists{contact-info.tex}%
+  {\input{contact-info.tex}}
+  {}
 
 %-------------------------------------------------------------------------------
 \begin{document}
@@ -85,18 +88,18 @@
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
 \makecvfooter
-  {\today}
-  {William O'Neill~~~·~~~Résumé}
-  {\thepage}
+  {}
+  {William O'Neill}
+  {\thepage\ of \pageref{LastPage}}
 
 
 %-------------------------------------------------------------------------------
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
-% \input{resume/summary.tex}
-\input{resume/skills.tex}
+\input{resume/summary.tex}
 \input{resume/experience.tex}
+\input{resume/skills.tex}
 \input{resume/presentation.tex}
 \input{resume/education.tex}
 
