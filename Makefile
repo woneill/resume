@@ -1,7 +1,7 @@
 # Configuration
 # --------------------------------------------------
 
-LATEX = docker run --rm -v $(abspath $(@D)):/mnt -w /mnt tianon/latex xelatex
+LATEX = docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v $(abspath $(@D)):/doc thomasweise/texlive xelatex
 LATEX_OPTIONS = 
 
 RESUME_DIR = resume
