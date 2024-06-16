@@ -1,7 +1,7 @@
 # Configuration
 # --------------------------------------------------
 
-LATEX = docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v $(abspath $(@D)):/doc thomasweise/texlive xelatex
+LATEX = docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v $(abspath $(@D)):/doc thomasweise/docker-texlive-full xelatex
 LATEX_OPTIONS = 
 
 RESUME_DIR = resume
