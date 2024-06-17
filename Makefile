@@ -1,31 +1,30 @@
 # Configuration
 # --------------------------------------------------
 
-LATEX = docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v $(abspath $(@D)):/doc thomasweise/docker-texlive-full xelatex
-LATEX_OPTIONS = 
+ifndef CI
+	TEXLIVE_DOCKER = docker run --rm -w "/doc" -v $(abspath $(@D)):/doc texlive/texlive
+endif
 
-RESUME_DIR = resume
-RESUME_SRCS = $(shell find $(RESUME_DIR) -name '*.tex')
+RESUME_SRCS = $(wildcard resume/*.tex)
 
-PDF2PNG = docker run --rm -v $(abspath $<):/var/workdir/input.pdf -v $(abspath $(@D)):/var/workdir/output/ kolyadin/pdf2img -png -q input.pdf output/$(<:.pdf=)
 
 # Targets
 # --------------------------------------------------
 
 .PHONY: all
-all: WilliamONeill.pdf WilliamONeill_coverletter.pdf WilliamONeill-1.png WilliamONeill-2.png
+all: WilliamONeill.pdf WilliamONeill_coverletter.pdf WilliamONeill-1.svg WilliamONeill-2.svg
 
-WilliamONeill%.png: WilliamONeill.pdf
-	$(PDF2PNG)
+WilliamONeill.xdv: WilliamONeill.tex $(RESUME_SRCS)
+	@$(TEXLIVE_DOCKER) xelatex -interaction=batchmode  -halt-on-error -no-pdf $<
 
-WilliamONeill.pdf: WilliamONeill.tex $(RESUME_DIR) $(RESUME_SRCS)
-	$(LATEX) $(LATEX_OPTIONS) $<
+WilliamONeill%.svg: WilliamONeill.xdv
+	@$(TEXLIVE_DOCKER) dvisvgm --bbox=letter --font-format=woff2 --page=-2 $<
+
+WilliamONeill.pdf: WilliamONeill.xdv
+	@$(TEXLIVE_DOCKER) xdvipdfmx $<
 
 WilliamONeill_coverletter.pdf: WilliamONeill_coverletter.tex
-	$(LATEX) $(LATEX_OPTIONS) $< 
-
-$(RESUME_DIR):
-	mkdir $(RESUME_DIR)
+	@$(TEXLIVE_DOCKER) xelatex $< 
 
 clean:
-	rm -rf *.pdf *.png *.aux *.fls *.log *.out *.fdb_latexmk *.synctex.gz
+	rm -rf *.xdv *.pdf *.png *.svg *.aux *.fls *.log *.out *.fdb_latexmk *.synctex.gz
