@@ -15,14 +15,25 @@
     {SurveyMonkey} % Organization
     {San Mateo, CA  (remote)} % Location
     {August 2022 - Current} % Date(s)
-    {}
+    {
+      \begin{cvitems} % Description(s) of tasks/responsibilities
+        \item {Led a three-year transformation to a scalable Kubernetes-based infrastructure, replacing an overprovisioned static setup.}
+        \item {Successfully migrated and refactored 200 Services, 30 ML models and 100 libraries \& SDKs with zero downtime.}
+        \item {Achieved a 40\%+ reduction (\char`~\$2M annual savings) in compute costs.}
+        \item {Lead and mentor a high-performing team of six remote engineers, fostering collaboration and innovation.}
+      \end{cvitems}
+    }
 
   \cventry
     {Staff Software Engineer - Site Reliability Engineering (SRE)} % Job title
     {} % Organization
     {} % Location
     {October 2021 - August 2022} % Date(s)
-    {}
+    {
+      \begin{cvitems}
+        \item {Designed and implemented automation frameworks, eliminating manual toil and boosting CI/CD efficiency.}
+      \end{cvitems}
+    }
 
   %---------------------------------------------------------
   \cventry
@@ -32,10 +43,9 @@
   {June 2020 - October 2021} % Date(s)
   { 
     \begin{cvitems} % Description(s) of tasks/responsibilities
-      \item {Implemented CI processes for Terraform and Ansible code bases. This reduced peer review cycle time from 2-3 days to under 1 day and lowered error rates plus improved documentation.}
-      \item {Created standardized pattern for Terraform stacks which enabled feature teams to safely self-service their own infrastructure. This removed the dependency on the infrastructure teams and led to feature teams quickly implementing their necessary infrastructure.}
-      \item {Designed a candidate tech lab as an additional vetting process during the team's interview cycle.}
-      \item {Improved individualized developer testing environments by implementing Let's Encrypt SSL certificates and OAuth based authorization.}
+      \item {Implemented CI/CD pipelines for Terraform and Ansible, accelerating peer review cycle time by 60\% (from 2-3 days to under 1 day).}
+      \item {Created standardized Terraform stacks, enabling self-service infrastructure deployment.}
+      \item {Designed an interactive candidate tech lab as an additional vetting process during the team's interview cycle.}
     \end{cvitems}
   }
 
@@ -44,24 +54,11 @@
     {DevOps Tech Lead} % Job title
     {Teachers Pay Teachers} % Organization
     {New York, NY (remote)} % Location
-    {March 2019 - June 2020} % Date(s)
+    {December 2018 - June 2020} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Coordinated transition from larger operations team to Cloud Operations focused infrastructure team.}
-        \item {Drove improvements to processes so that requests from development teams were fulfilled in a consistent manner. These changes enabled the Cloud Operations team to implement SLOs for most common requests.}
-      \end{cvitems}
-    }
-
-  \cventry
-    {Senior DevOps Engineer} % Job title
-    {} % Organization
-    {} % Location
-    {December 2018 - March 2019} % Date(s)
-    { 
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Coordinated the audit process to achieve PCI Level 1 certification. Improvements to the process reduced the time to perform the audit from multiple weeks down to 2 days.}
-        \item {Delivered an automated function to understand and forecast AWS EC2 Reserved Instance needs.}
-        \item {Developed Terraform modules that encapsulated best practices for infrastructure hosted on AWS.}
+        \item {Led PCI Level 1 certification efforts, reducing audit time from multiple weeks to just 2 days.}
+        \item {Developed reusable Terraform modules that encapsulated best practices for AWS infrastructure automation.}
       \end{cvitems}
     }
 
@@ -71,12 +68,7 @@
     {Spreedly} % Organization
     {Durham, NC (remote)} % Location
     {May 2017 - November 2018} % Date(s)
-    {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Championed `infrastructure as code' for existing co-located servers and refactored for a migration to AWS.}
-        \item {Evolved deployments from `snowflakes' to immutable infrastructure via Ansible, Packer, and Terraform.}
-      \end{cvitems}
-    }
+    {Transitioned deployments  from manual `snowflake' processes to immutable infrastructure-as-code via Ansible, Packer, and Terraform.}
 
 %---------------------------------------------------------
   \cventry
@@ -84,50 +76,29 @@
     {GE Digital} % Organization
     {Atlanta, GA} % Location
     {August 2016 - May 2017} % Date(s)
-    {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Improved automation of the wing to wing monitoring of network and compute assets.}
-        \item {Consolidated monitoring tool sprawl by creating business unit dashboards.}
-        \item {Developed an `easy button' for the first contact helpdesk which empowered them to do tasks such as pinging hosts, checking application status, and even reboot machines with supervisor approval.}
-        \item {Implemented full lifecycle deployment of microservices via Jenkins for builds, Sphinx/Swagger generated documentation, artifact storage in Artifactory, and final deployment via Ansible.}
-      \end{cvitems}
-    }
+    {Automated microservices lifecycle deployment using Jenkins, Sphinx, Swagger, and Ansible.}
 
 %---------------------------------------------------------
   \cventry
     {Senior Infrastructure Engineer} % Job title
     {MailChimp} % Organization
     {Atlanta, GA} % Location
-    {April 2015 - May 2016} % Date(s)
+    {October 2012 - May 2016} % Date(s)
     {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Migrated high traffic DNS domains from a provider that billed based on usage to Akamai. This reduced costs since billing was no longer traffic based and increased the SLA for DNS.}
-        \item {Consolidated hundreds of domain names spread across several registrars to one registrar. This made management of domain names more consistent, provided visibility into domain names that should be added or dropped as necessary, and enabled creation of a customized `parked page' for unused domains.}
-        \item {Helped move MailChimp from 3rd party managed hosting operations to self-managed colocation datacenters. This move reduced operations costs, improved service reliability, and provided a model for future server growth.}
-        \item {Subject matter expert on testing Puppet prior to deploying to production. Designed a common template for new Puppet modules that includes testing run via Docker instances.}
+      \begin{cvitems}
+        \item {Spearheaded migration from 3rd-party managed hosting to self-managed colocation data centers.}
+        \item {Scaled the operations team from 3 to 40 engineers while optimizing infrastructure performance.}
       \end{cvitems}
     }
+ 
 
-  \cventry
-    {Infrastructure Engineer} % Job title
-    {} % Organization
-    {} % Location
-    {October 2012 - April 2015} % Date(s)
-    {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Helped scale the operations team from 3 people to ~40 engineers. This involved documentation of the greenfield datacenter implementations, tech talks on subjects such as Puppet development, infrastructure testing, and 1-on-1 mentorship.}
-        \item {Implemented configuration management using Puppet, replacing an in-house configuration management tool who's development had been abandoned.}
-        \item {Developed internal tooling that automatically provisioned servers from `rack and stack' bare metal to a fully installed OS registered with an in-house CMDB.}
-      \end{cvitems}
-    }
-
-%---------------------------------------------------------
-  \cventry
-    {Systems Engineer} % Job title
-    {Intercontinental Exchange, Inc.} % Organization
-    {Atlanta, GA} % Location
-    {March 2010 - October 2012} % Date(s)
-    {Managed >4000 Solaris, Linux, AIX and Windows nodes spread across 6 data centers. Implemented Puppet to manage server configurations that had been manually configured via an error prone process.}
+% %---------------------------------------------------------
+%   \cventry
+%     {Systems Engineer} % Job title
+%     {Intercontinental Exchange, Inc.} % Organization
+%     {Atlanta, GA} % Location
+%     {March 2010 - October 2012} % Date(s)
+%     {Managed >4000 Solaris, Linux, AIX and Windows nodes spread across 6 data centers. Implemented Puppet to manage server configurations that had been manually configured via an error prone process.}
 
 %---------------------------------------------------------
 %   \cventry
