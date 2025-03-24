@@ -18,7 +18,7 @@ WilliamONeill.xdv: WilliamONeill.tex $(RESUME_SRCS)
 	@$(TEXLIVE_DOCKER) xelatex -interaction=batchmode  -halt-on-error -no-pdf $<
 
 WilliamONeill%.svg: WilliamONeill.xdv
-	@$(TEXLIVE_DOCKER) dvisvgm --bbox=letter --font-format=woff2 --page=-2 $<
+	@$(TEXLIVE_DOCKER) dvisvgm --bbox=letter --no-fonts --page=-2 $<
 
 WilliamONeill.pdf: WilliamONeill.xdv
 	@$(TEXLIVE_DOCKER) xdvipdfmx $<
