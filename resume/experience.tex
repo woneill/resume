@@ -46,6 +46,7 @@
       \item {Implemented CI/CD pipelines for Terraform and Ansible, accelerating peer review cycle time by 60\% (from 2-3 days to under 1 day).}
       \item {Created standardized Terraform stacks, enabling self-service infrastructure deployment.}
       \item {Designed an interactive candidate tech lab as an additional vetting process during the team's interview cycle.}
+      \item {Improved individualized developer testing environments by implementing Let's Encrypt SSL certificates and OAuth based authorization.}
     \end{cvitems}
   }
 
@@ -57,6 +58,8 @@
     {December 2018 - June 2020} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
+        \item {Coordinated transition from larger operations team to Cloud Operations focused infrastructure team.}
+        \item {Drove improvements to processes so that requests from development teams were fulfilled in a consistent manner. These changes enabled the Cloud Operations team to implement SLOs for most common requests.}
         \item {Led PCI Level 1 certification efforts, reducing audit time from multiple weeks to just 2 days.}
         \item {Developed reusable Terraform modules that encapsulated best practices for AWS infrastructure automation.}
       \end{cvitems}
@@ -68,7 +71,7 @@
     {Spreedly} % Organization
     {Durham, NC (remote)} % Location
     {May 2017 - November 2018} % Date(s)
-    {Transitioned deployments  from manual `snowflake' processes to immutable infrastructure-as-code via Ansible, Packer, and Terraform.}
+    {Transitioned deployments from manual bespoke processes to immutable infrastructure-as-code via Ansible, Packer, and Terraform.}
 
 %---------------------------------------------------------
   \cventry
@@ -76,7 +79,13 @@
     {GE Digital} % Organization
     {Atlanta, GA} % Location
     {August 2016 - May 2017} % Date(s)
-    {Automated microservices lifecycle deployment using Jenkins, Sphinx, Swagger, and Ansible.}
+    {
+      \begin{cvitems}
+        \item {Improved automation of the wing to wing monitoring of GE's network and compute assets. Consolidated monitoring tool sprawl by creating business unit dashboards.}
+        \item {Automated microservices lifecycle deployment using Jenkins, Sphinx, Swagger, and Ansible.}
+        \item {Developed an easy button application for the first contact helpdesk which empowered them to do tasks such as pinging hosts, check on application status, and even reboot machines with supervisor approval.}
+      \end{cvitems}
+    }
 
 %---------------------------------------------------------
   \cventry
@@ -87,18 +96,30 @@
     {
       \begin{cvitems}
         \item {Spearheaded migration from 3rd-party managed hosting to self-managed colocation data centers.}
-        \item {Scaled the operations team from 3 to 40 engineers while optimizing infrastructure performance.}
+        \item {Scaled the operations team from 3 to 40 engineers while optimizing infrastructure performance via documentation of the greenfield datacenter implementations, tech talks on subjects such as Puppet development, infrastructure testing, and 1-on-1 mentorship.}
+        \item {Migrated high traffic DNS domains from a provider that billed based on usage to Akamai. This reduced costs since billing was no longer traffic based and increased the SLA for DNS.}
+        \item {Consolidated hundreds of domain names spread across several registrars to one registrar. This made management of domain names more consistent, provided visibility into domain names that should be added or dropped as necessary, and enabled creation of a customized 'parked page' for unused domains.}
+        \item {Subject matter expert for DNS (internal and external), server provisioning and Akamai CDN configurations.}
+        \item {Developed internal tooling that automatically provisioned servers from 'rack and stack' bare metal to a fully installed OS registered with an in-house CMDB. Same tooling was also used to handle kvm-based virtual provisioning.}
+        \item {Implemented configuration management using Puppet, replacing an in-house configuration management tool where development had been abandoned.}
       \end{cvitems}
     }
  
 
-% %---------------------------------------------------------
-%   \cventry
-%     {Systems Engineer} % Job title
-%     {Intercontinental Exchange, Inc.} % Organization
-%     {Atlanta, GA} % Location
-%     {March 2010 - October 2012} % Date(s)
-%     {Managed >4000 Solaris, Linux, AIX and Windows nodes spread across 6 data centers. Implemented Puppet to manage server configurations that had been manually configured via an error prone process.}
+%---------------------------------------------------------
+  \cventry
+    {Systems Engineer} % Job title
+    {Intercontinental Exchange, Inc.} % Organization
+    {Atlanta, GA} % Location
+    {March 2010 - October 2012} % Date(s)
+    {
+      \begin{cvitems}
+        \item {Managed >4000 server nodes spread across 6 data centers. Servers were a heterogeneous combination of Solaris, Linux, AIX and Windows.}
+        \item {Implemented Puppet to manage server configurations. This increased the consistency of server roll-outs and simplified updating existing configurations.}
+        \item {Introduced Cobbler to automate Kickstart installations. The previous Linux build system was either one-off (CD based) or RHN dependent.}
+        \item {Designed an automated AWS provisioning system for realistic load testing of public facing applications. Also developed a process for end-user requests that prevented unused instances from remaining active which reduced overall costs.}
+      \end{cvitems}
+    }
 
 %---------------------------------------------------------
 %   \cventry
