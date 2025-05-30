@@ -83,12 +83,15 @@
 % Needed to deal a paragraphs
 \RequirePackage{parskip}
 % Needed to deal hyperlink
-\RequirePackage[hidelinks,unicode,pdfpagelabels=false]{hyperref}
+\RequirePackage[unicode,pdfpagelabels=false]{hyperref}
 \hypersetup{%
   pdftitle={},
   pdfauthor={},
   pdfsubject={},
-  pdfkeywords={}
+  pdfkeywords={},
+  colorlinks=true, %Colours links instead of ugly boxes
+  urlcolor=blue, %Colour for external hyperlinks
+  linkcolor=blue %Colour of internal links
 }
 % Solves issues Warning: File `cv.out' has changed
 \RequirePackage{bookmark}
@@ -476,6 +479,7 @@
     \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvHeaderAfterPositionSkip]}}%
     \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\[\acvHeaderAfterAddressSkip]}}%
     \headersocialstyle{%
+      \hypersetup{hidelinks}
       \newbool{isstart}%
       \setbool{isstart}{true}%
       \ifthenelse{\isundefined{\@mobile}}%
