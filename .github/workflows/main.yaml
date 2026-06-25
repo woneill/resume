@@ -24,8 +24,10 @@ jobs:
         with:
           docker_image: texlive/texlive:latest
           run: |
+            apt-get update
+            apt-get install -y poppler-utils
             make
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          file_pattern: "*.pdf *.svg *.xdv"
+          file_pattern: "*.pdf *.svg"

@@ -3,6 +3,7 @@
 
 ifndef CI
 	TEXLIVE_DOCKER = docker run --rm -w "/doc" -v $(abspath $(@D)):/doc texlive/texlive
+	POPPLER_DOCKER = docker run --rm -w "/doc" -v $(abspath $(@D)):/doc minidocks/poppler
 endif
 
 RESUME_SRCS = $(wildcard resume/*.tex)
@@ -14,17 +15,14 @@ RESUME_SRCS = $(wildcard resume/*.tex)
 .PHONY: all
 all: WilliamONeill.pdf WilliamONeill_coverletter.pdf WilliamONeill-1.svg WilliamONeill-2.svg
 
-WilliamONeill.xdv: WilliamONeill.tex $(RESUME_SRCS)
-	@$(TEXLIVE_DOCKER) xelatex -interaction=batchmode  -halt-on-error -no-pdf $<
+WilliamONeill.pdf: WilliamONeill.tex $(RESUME_SRCS)
+	@$(TEXLIVE_DOCKER) lualatex -interaction=batchmode -halt-on-error $<
 
-WilliamONeill%.svg: WilliamONeill.xdv
-	@$(TEXLIVE_DOCKER) dvisvgm --bbox=letter --no-fonts --page=-2 $<
-
-WilliamONeill.pdf: WilliamONeill.xdv
-	@$(TEXLIVE_DOCKER) xdvipdfmx $<
+WilliamONeill-%.svg: WilliamONeill.pdf
+	@$(POPPLER_DOCKER) pdftocairo -svg -f $* -l $* $< $@
 
 WilliamONeill_coverletter.pdf: WilliamONeill_coverletter.tex
-	@$(TEXLIVE_DOCKER) xelatex $< 
+	@$(TEXLIVE_DOCKER) lualatex $<
 
 clean:
-	rm -rf *.xdv *.pdf *.png *.svg *.aux *.fls *.log *.out *.fdb_latexmk *.synctex.gz
+	rm -rf *.pdf *.png *.svg *.aux *.fls *.log *.out *.fdb_latexmk *.synctex.gz
