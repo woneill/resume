@@ -81,41 +81,9 @@
 \defaultfontfeatures{
   Renderer=HarfBuzz,
 }
-% Support both "Source Sans 3" (variable or static, from Adobe/Homebrew/distro
-% packages) and "Source Sans Pro" (static, bundled with TeX Live).
-\IfFontExistsTF{Source Sans 3}{%
-  \setmainfont{Source Sans 3}[
-    RawFeature={+axis={wght=400}},
-    BoldFont={Source Sans 3},
-    BoldFeatures={RawFeature={+axis={wght=700}}},
-    ItalicFont={Source Sans 3 Italic},
-    ItalicFeatures={RawFeature={+axis={wght=400}}},
-    BoldItalicFont={Source Sans 3 Italic},
-    BoldItalicFeatures={RawFeature={+axis={wght=700}}},
-    FontFace={l}{n}{Font=Source Sans 3, RawFeature={+axis={wght=300}}},
-    FontFace={l}{it}{Font=Source Sans 3 Italic, RawFeature={+axis={wght=300}}},
-  ]
-  \setsansfont{Source Sans 3}[
-    RawFeature={+axis={wght=400}},
-    BoldFont={Source Sans 3},
-    BoldFeatures={RawFeature={+axis={wght=700}}},
-    ItalicFont={Source Sans 3 Italic},
-    ItalicFeatures={RawFeature={+axis={wght=400}}},
-    BoldItalicFont={Source Sans 3 Italic},
-    BoldItalicFeatures={RawFeature={+axis={wght=700}}},
-    FontFace={l}{n}{Font=Source Sans 3, RawFeature={+axis={wght=300}}},
-    FontFace={l}{it}{Font=Source Sans 3 Italic, RawFeature={+axis={wght=300}}},
-  ]
-}{%
-  \setmainfont{Source Sans Pro}[
-    FontFace={l}{n}{Font=*-Light},
-    FontFace={l}{it}{Font=*-LightItalic},
-  ]
-  \setsansfont{Source Sans Pro}[
-    FontFace={l}{n}{Font=*-Light},
-    FontFace={l}{it}{Font=*-LightItalic},
-  ]
-}
+% Use Latin Modern Sans for more stable text extraction in ATS/tokenizers.
+\setmainfont{Latin Modern Sans}
+\setsansfont{Latin Modern Sans}
 \newfontfamily\roboto{Roboto}[
   UprightFont=*,
   ItalicFont=* Italic,
@@ -580,7 +548,7 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{mailto:\@email}{\faAlt{mailto:\@email}{\faEnvelope}{\@email}}%
+          \href{mailto:\@email}{\faAlt{\@email}{\faEnvelope}{\@email}}%
         }%
       \ifthenelse{\isundefined{\@dateofbirth}}%
         {}%
@@ -598,7 +566,7 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://github.com/\@github}{\faAlt{GitHub: @\@github}{\faSquareGithub}{\@github}}%
+          \href{https://github.com/\@github}{\faAlt{github.com/\@github}{\faSquareGithub}{\@github}}%
         }%
       \ifthenelse{\isundefined{\@gitlab}}%
         {}%
@@ -622,7 +590,7 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.linkedin.com/in/\@linkedin}{\faAlt{LinkedIn: /in/\@linkedin}{\faLinkedin}{\@linkedin}}%
+          \href{https://www.linkedin.com/in/\@linkedin}{\faAlt{linkedin.com/in/\@linkedin}{\faLinkedin}{\@linkedin}}%
         }%
       \ifthenelse{\isundefined{\@orcid}}%
         {}%
